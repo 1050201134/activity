@@ -14,6 +14,9 @@ export default new Router({
     {
       path: '/index',
       name: 'index',
+      redirect: {
+        name: 'signUp'
+      },
       component: () => import('./views/Index.vue'),
       children: [
         {
@@ -25,6 +28,21 @@ export default new Router({
           path: 'myActivity',
           name: 'myActivity',
           component: () => import('./components/MyActivity.vue')
+        }
+      ]
+    },
+    {
+      path: '/manager',
+      name: 'manager',
+      redirect: {
+        name: 'peopleManager'
+      },
+      component: () => import('./views/Manager.vue'),
+      children: [
+        {
+          path: 'peopleManager',
+          name: 'peopleManager',
+          component: () => import('./views/PeopleManager.vue')
         }
       ]
     }
