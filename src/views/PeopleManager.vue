@@ -2,12 +2,6 @@
   <div>
     <div style="background:#eee;text-align: left">
       <h1 style="background-color: white">报名人员管理</h1>
-      <Card :bordered="false">
-        <p slot="title">页面提示</p>
-        <p>1. 筛选显示列表信息，快速查看需要重点关注的参会人员信息；</p>
-        <P>2. 快速搜索目标人群进行群发、补发消息；</p>
-        <P>3. 批量添加、删除导出报名人员名单。</p>
-      </Card>
       <Card>
         <Button type="primary"  @click="modal1 = true" >添加</Button>
         <Dropdown style="float: right">

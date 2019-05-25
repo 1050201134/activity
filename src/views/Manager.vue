@@ -43,6 +43,10 @@ export default {
           this.$router.push({ name: 'peopleManager' })
           break
         }
+        case '2-1': {
+          this.$router.push({ name: 'addActivity2' })
+          break
+        }
         case '3': {
           this.$router.push({ name: 'index' })
           break

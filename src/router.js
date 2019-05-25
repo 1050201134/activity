@@ -12,6 +12,11 @@ export default new Router({
       }
     },
     {
+      path: '/AddActivity',
+      name: 'addActivity',
+      component: () => import('./views/AddActivity.vue')
+    },
+    {
       path: '/index',
       name: 'index',
       redirect: {
@@ -48,6 +53,11 @@ export default new Router({
           path: 'peopleManager',
           name: 'peopleManager',
           component: () => import('./views/PeopleManager.vue')
+        },
+        {
+          path: '/AddActivity2',
+          name: 'addActivity2',
+          component: () => import('./views/AddActivity2.vue')
         }
       ]
     }

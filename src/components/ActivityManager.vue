@@ -16,7 +16,7 @@
             <DropdownItem name="留学">留学</DropdownItem>
           </DropdownMenu>
         </Dropdown>
-        <Button type="primary" style="margin-left: 2rem" @click="">创建活动</Button>
+        <Button type="primary" style="margin-left: 2rem" @click="addActivity">创建活动</Button>
         <Input search enter-button="Search" placeholder="Enter something..." style="width: 15rem;margin-left: 5rem"/>
       </div>
       <div style="margin-top: 2rem">
@@ -197,6 +197,9 @@ export default {
     infoToSignUp () {
       this.isShow = false
       this.isSignUp = true
+    },
+    addActivity () {
+      this.$router.push({ name: 'addActivity' })
     }
   },
   computed: {
