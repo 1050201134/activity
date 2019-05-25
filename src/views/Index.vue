@@ -16,7 +16,7 @@
       </MenuItem>
       <MenuItem name="3">
         <Icon type="ios-paper" />
-        活动管理
+        活动管
       </MenuItem>
     </Menu>
     <div class="childWrap">
