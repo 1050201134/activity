@@ -8,10 +8,15 @@
               <Icon type="ios-people" />
               报名人员管理管理
             </MenuItem>
-            <MenuItem name="2" >
-              <Icon type="ios-construct" />
-              活动设置
-            </MenuItem>
+            <Submenu name="2">
+              <template slot="title">
+                <Icon type="ios-paper" />
+                活动设置
+              </template>
+              <MenuItem name="2-1">活动设置</MenuItem>
+              <MenuItem name="2-2">报名表单</MenuItem>
+              <MenuItem name="2-3">活动详细</MenuItem>
+            </Submenu>
             <MenuItem name="3" >
               <Icon type="ios-paper" />
               活动报名
