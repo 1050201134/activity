@@ -5,7 +5,7 @@
       <Card :bordered="false">
         <p slot="title">页面提示</p>
         <p>1. 筛选显示列表信息，快速查看需要重点关注的参会人员信息；</p>
-        <P>2. 快速搜索目标人群进行群发、补发消息（此功能需要消耗点数）；</p>
+        <P>2. 快速搜索目标人群进行群发、补发消息；</p>
         <P>3. 批量添加、删除导出报名人员名单。</p>
       </Card>
       <Card>
@@ -21,7 +21,7 @@
             <DropdownItem>导出</DropdownItem>
           </DropdownMenu>
         </Dropdown>
-        <Input search enter-button placeholder="Enter something..." />
+        <Input search enter-button="Search" placeholder="Enter something..." style="width: 15rem;"/>
         <div style="margin-top: 1rem">
           <Table border ref="selection" :columns="columns4" :data="data1"></Table>
         </div>
@@ -169,13 +169,4 @@ export default {
 
 <style scoped>
 
-</style>
-<style>
-  .ivu-input-group .ivu-input {
-    width: 20%;
-    float: right;
-    margin-bottom: 0;
-    position: relative;
-    z-index: 2;
-  }
 </style>

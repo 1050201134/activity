@@ -28,6 +28,11 @@ export default new Router({
           path: 'myActivity',
           name: 'myActivity',
           component: () => import('./components/MyActivity.vue')
+        },
+        {
+          path: 'activityManager',
+          name: 'activityManager',
+          component: () => import('./components/ActivityManager.vue')
         }
       ]
     },

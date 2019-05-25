@@ -14,6 +14,10 @@
         <Icon type="ios-paper" />
         我的活动
       </MenuItem>
+      <MenuItem name="3">
+        <Icon type="ios-paper" />
+        活动管理
+      </MenuItem>
     </Menu>
     <div class="childWrap">
       <router-view></router-view>
@@ -35,6 +39,10 @@ export default {
         }
         case '2': {
           this.$router.push({ name: 'myActivity' })
+          break
+        }
+        case '3': {
+          this.$router.push({ name: 'activityManager' })
           break
         }
       }

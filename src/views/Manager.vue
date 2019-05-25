@@ -3,7 +3,7 @@
     <Layout>
       <Layout>
         <Sider hide-trigger :style="{background: '#fff'}">
-          <Menu mode="vertical" theme="dark" active-name="1" width="auto" @on-select="change" >
+          <Menu mode="vertical" theme="light" active-name="1" width="auto" @on-select="change" >
             <MenuItem name="1" >
               <Icon type="ios-people" />
               报名人员管理管理
@@ -11,6 +11,10 @@
             <MenuItem name="2" >
               <Icon type="ios-construct" />
               活动设置
+            </MenuItem>
+            <MenuItem name="3" >
+              <Icon type="ios-paper" />
+              活动报名
             </MenuItem>
           </Menu>
         </Sider>
@@ -32,6 +36,10 @@ export default {
       switch (name) {
         case '1': {
           this.$router.push({ name: 'peopleManager' })
+          break
+        }
+        case '3': {
+          this.$router.push({ name: 'index' })
           break
         }
       }
