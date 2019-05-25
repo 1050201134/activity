@@ -51,6 +51,9 @@ export default {
           this.$router.push({ name: 'index' })
           break
         }
+        case '2-2': {
+          this.$router.push({ name: 'signUpInfo' })
+        }
       }
     }
   }

@@ -55,6 +55,11 @@ export default new Router({
           component: () => import('./views/PeopleManager.vue')
         },
         {
+          path: 'signUpInfo',
+          name: 'signUpInfo',
+          component: () => import('./components/SignUpInfo.vue')
+        },
+        {
           path: '/AddActivity2',
           name: 'addActivity2',
           component: () => import('./views/AddActivity2.vue')

@@ -28,17 +28,17 @@
           <TabPane label="校内" name="name1">
             <Form ref="formInline" :model="formInline" :rules="ruleInline"  :label-width="80">
               <FormItem prop="user" label="学号">
-                <Input type="text" v-model="formInline.user" placeholder="请输入学号或者工号"></Input>
+                <Input type="text" v-model="formInline.user" placeholder="请输入学号或者工号"/>
               </FormItem>
             </Form>
           </TabPane>
           <TabPane label="校外" name="name2">
             <Form ref="formInline" :model="formInline" :rules="ruleInline"  :label-width="80">
               <FormItem prop="user" label="姓名">
-                <Input type="text" v-model="formInline.user" placeholder=""></Input>
+                <Input type="text" v-model="formInline.user" placeholder=""/>
               </FormItem>
               <FormItem prop="user" label="手机号码">
-                <Input type="text" v-model="formInline.user" placeholder=""></Input>
+                <Input type="text" v-model="formInline.user" placeholder=""/>
               </FormItem>
             </Form>
           </TabPane>
