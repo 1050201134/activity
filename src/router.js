@@ -17,6 +17,11 @@ export default new Router({
       component: () => import('./views/AddActivity.vue')
     },
     {
+      path: '/Preview',
+      name: 'preview',
+      component: () => import('./components/Preview.vue')
+    },
+    {
       path: '/index',
       name: 'index',
       redirect: {
