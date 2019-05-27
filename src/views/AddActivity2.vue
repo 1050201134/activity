@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div v-if="show">
     <div>
       <h1 style="padding: 2rem 0;padding-left: 2rem;background-color: white">创建活动</h1>
     </div>
@@ -15,55 +16,89 @@
         <FormItem label="活动名称">
           <Input v-model="formItem.input" placeholder="Enter something..."></Input>
         </FormItem>
+        <FormItem label="活动海报">
+          <div style="display: flex">
+            <Upload action="//jsonplaceholder.typicode.com/posts/">
+              <Button >上传海报</Button>
+            </Upload>
+          </div>
+        </FormItem>
         <FormItem label="活动描述">
           <Input v-model="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter something..."></Input>
         </FormItem>
-        <FormItem label="活动开始日期">
-          <DatePicker type="date" placeholder="Select date" v-model="formItem.date"></DatePicker>
-        </FormItem>
-        <FormItem label="活动结束日期">
-          <DatePicker type="date" placeholder="Select date" v-model="formItem.date"></DatePicker>
-        </FormItem>
-        <FormItem label="报名开始日期">
-          <DatePicker type="date" placeholder="Select date" v-model="formItem.date"></DatePicker>
-        </FormItem>
-        <FormItem label="报名结束日期">
-          <DatePicker type="date" placeholder="Select date" v-model="formItem.date"></DatePicker>
-        </FormItem>
-        <FormItem label="需报名审核">
-          <Checkbox ></Checkbox>
-        </FormItem>
-        <FormItem label="是否公开报名">
-          <RadioGroup v-model="formItem.radio">
-            <Radio label="male">公开报名</Radio>
-            <Radio label="female">不公开报名</Radio>
-          </RadioGroup>
-        </FormItem>
-        <FormItem label="报名人数限制"  >
+        <FormItem label="活动开始日期" >
           <div style="display: flex">
-            <Checkbox label="true" v-model="formItem.limit"></Checkbox>
-            <Input v-if="formItem.limit" v-model="formItem.input" placeholder="Enter something..." ></Input>
+            <DatePicker type="date" placeholder="Select date" v-model="formItem.date"></DatePicker>
+            <TimePicker type="time" placeholder="Select time" v-model="formItem.time"></TimePicker>
           </div>
         </FormItem>
-        <FormItem label="白名单">
-          <Tree :data="data2" show-checkbox ></Tree>
+        <FormItem label="活动结束日期">
+          <div style="display: flex">
+            <DatePicker type="date" placeholder="Select date" v-model="formItem.date"></DatePicker>
+            <TimePicker type="time" placeholder="Select time" v-model="formItem.time"></TimePicker>
+          </div>
         </FormItem>
-        <FormItem label="黑名单">
-          <Input v-model="formItem.input" placeholder="Enter something..."></Input>
+        <FormItem label="报名开始日期">
+          <div style="display: flex">
+            <DatePicker type="date" placeholder="Select date" v-model="formItem.date"></DatePicker>
+            <TimePicker type="time" placeholder="Select time" v-model="formItem.time"></TimePicker>
+          </div>
         </FormItem>
-        <FormItem>
+        <FormItem label="报名结束日期">
+          <div style="display: flex">
+            <DatePicker type="date" placeholder="Select date" v-model="formItem.date"></DatePicker>
+            <TimePicker type="time" placeholder="Select time" v-model="formItem.time"></TimePicker>
+          </div>
+        </FormItem>
+        <Collapse simple>
+          <Panel name="1">
+            更多设置
+            <p slot="content">
+              <FormItem label="需报名审核">
+                <Checkbox ></Checkbox>
+              </FormItem>
+              <FormItem label="报名人数限制"  >
+                <div style="display: flex">
+                  <Checkbox label="true" v-model="formItem.limit"></Checkbox>
+                  <InputNumber v-if="formItem.limit" :max="1000" :min="1" v-model="value1"></InputNumber><p v-if="formItem.limit">人</p>
+                </div>
+              </FormItem>
+              <FormItem label="是否公开报名">
+                <RadioGroup v-model="formItem.radio">
+                  <Radio label="male">公开报名</Radio>
+                  <Radio label="female">不公开报名</Radio>
+                </RadioGroup>
+              </FormItem>
+              <!--<FormItem label="白名单" v-if="formItem.radio === 'male'">-->
+                <!--<Tree :data="data2" show-checkbox ></Tree>-->
+              <!--</FormItem>-->
+              <!--<FormItem label="黑名单" v-if="formItem.radio === 'male'">-->
+                <!--<Input v-model="formItem.input" placeholder="Enter something..."></Input>-->
+              <!--</FormItem>-->
+            </p>
+          </Panel>
+        </Collapse>
+        <FormItem style="margin-top: 2rem">
           <Button type="primary">保存</Button>
+          <Button style="margin-left: 1rem" type="primary" @click="preview">预览</Button>
         </FormItem>
       </Form>
     </div>
   </div>
+    <Preview v-if="!show" :show="show" @getMessage="showMsg"></Preview>
+  </div>
 </template>
 
 <script>
+import Preview from '@/components/Preview'
 export default {
   name: 'AddActivity',
+  components: {
+    Preview
+  },
   data () {
     return {
+      show: true,
       data2: [
         {
           title: '学院',
@@ -99,7 +134,7 @@ export default {
       formItem: {
         input: '',
         select: '',
-        radio: false,
+        radio: 'male',
         limit: false,
         checkbox: [],
         switch: true,
@@ -108,6 +143,14 @@ export default {
         slider: [20, 50],
         textarea: ''
       }
+    }
+  },
+  methods: {
+    preview () {
+      this.show = !this.show
+    },
+    showMsg (title) {
+      this.show = title
     }
   }
 }
