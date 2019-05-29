@@ -12,6 +12,16 @@ export default new Router({
       }
     },
     {
+      path: '/phoneIndex',
+      name: 'phoneIndex',
+      component: () => import('./views/PhoneIndex.vue')
+    },
+    {
+      path: '/activity',
+      name: 'activity',
+      component: () => import('./views/Activity.vue')
+    },
+    {
       path: '/AddActivity',
       name: 'addActivity',
       component: () => import('./views/AddActivity.vue')
